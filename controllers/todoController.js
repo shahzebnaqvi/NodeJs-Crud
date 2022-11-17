@@ -27,7 +27,7 @@ class TodoController {
 
     async createTask(request, response) {
         const todoRepo = new TodoRepo();
-        let res = await todoRepo.createTaskRepo(request.body.id,
+        let res = await todoRepo.createTaskRepo(
             request.body.task, request.body.done);
 
         response.json({

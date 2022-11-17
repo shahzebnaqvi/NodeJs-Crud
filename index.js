@@ -35,7 +35,7 @@ app.put(TODO_BASE_ROUTE, todoController.updateTask)
 app.delete(TODO_BASE_ROUTE, todoController.deleteTask)
 
 app.get('/alluser', userController.getAll)
-app.post('/register', userController.createTask)
+app.post('/register', userController.createregister)
 app.post('/login', userController.checklogin)
 
 // app.get('/testdb',async (request, response)=>{

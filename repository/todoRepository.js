@@ -11,11 +11,11 @@ class TodoRepo {
         );
     }
 
-    async createTaskRepo(id, task, done) {
+    async createTaskRepo(task, done) {
         return await pool.query(`INSERT INTO public.todolist
-        (id, task, done )
-        VALUES($1,$2,$3)`,
-            [id, task, done]);
+        ( task, done )
+        VALUES($1,$2)`,
+            [task, done]);
     }
 
     async updateTaskRepo(id, task, done) {

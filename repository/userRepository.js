@@ -11,11 +11,11 @@ class UserRepo {
     }
 
 
-    async createTaskRepo(id, email, password) {
+    async createTaskRepo(email, password) {
         return await pool.query(`INSERT INTO public.user
-        (id, email, password )
-        VALUES($1,$2,$3)`,
-            [id, email, password]);
+        ( email, password )
+        VALUES($1,$2)`,
+            [email, password]);
     }
     async updateTaskRepo(id, email, password) {
         return await pool.query(`UPDATE public.user

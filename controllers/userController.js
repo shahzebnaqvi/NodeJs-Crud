@@ -26,7 +26,7 @@ class UserController {
 
     async createregister(request, response) {
         const userRepo = new UserRepo();
-        let res = await userRepo.createTaskRepo(request.body.id,
+        let res = await userRepo.createTaskRepo(
             request.body.email, request.body.password);
 
         response.json({
