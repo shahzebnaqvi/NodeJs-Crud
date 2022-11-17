@@ -8,8 +8,23 @@ class UserController {
             user: res.rows
         });
     }
+    async checklogin(request, response) {
+        const todoRepo = new TodoRepo();
+        let res = await todoRepo.checkrtasksingle(
+            request.body.email, request.body.password);
+        if (res.rows.length > 0) {
+            var result = "You Are Logined";
+        }
+        else {
+            var result = "Failed to Login";
 
-    async createTask(request, response) {
+        }
+        response.json({
+            "status": result
+        })
+    }
+
+    async createregister(request, response) {
         const userRepo = new UserRepo();
         let res = await userRepo.createTaskRepo(request.body.id,
             request.body.email, request.body.password);

@@ -5,6 +5,12 @@ class UserRepo {
         return await pool.query(`select * from public.user`);
     }
 
+    async checkrtasksingle(email, password) {
+        return await pool.query(`select * from public.user  WHERE email = $1 and password = $2`, [email, password]
+        );
+    }
+
+
     async createTaskRepo(id, email, password) {
         return await pool.query(`INSERT INTO public.user
         (id, email, password )
